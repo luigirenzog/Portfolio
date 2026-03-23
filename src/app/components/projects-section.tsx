@@ -138,8 +138,8 @@ export function ProjectsSection() {
             setActiveImageIndex(0);
           }}
         >
-          <div className="max-w-6xl mx-auto h-full flex flex-col" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between text-white mb-3 md:mb-4">
+          <div className="max-w-6xl mx-auto h-full grid grid-rows-[auto,1fr,auto] gap-3 md:gap-4" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between text-white">
               <h3 className="pr-3" style={{ fontSize: "clamp(1rem, 3.8vw, 1.25rem)", fontWeight: 700 }}>{activeProject.title}</h3>
               <button
                 onClick={() => {
@@ -153,45 +153,49 @@ export function ProjectsSection() {
               </button>
             </div>
 
-            <div className="flex-1 min-h-0 rounded-2xl flex items-center gap-2 md:gap-4 py-1 sm:py-0">
-              <button
-                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                onClick={() => setActiveImageIndex((prev) => Math.max(prev - 1, 0))}
-                disabled={activeImageIndex === 0}
-                aria-label="Previous project image"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-full max-w-5xl aspect-[16/10] rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/20">
+            <div className="min-h-0 rounded-2xl flex items-center py-1 sm:py-0">
+              <div className="w-full h-full min-h-0 flex items-center justify-center">
+                <div className="w-full h-full max-h-full rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/20">
                   <ImageWithFallback
                     src={activeProject.gallery[activeImageIndex].src}
                     alt={`${activeProject.title} screenshot ${activeImageIndex + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
-
-              <button
-                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                onClick={() =>
-                  setActiveImageIndex((prev) => Math.min(prev + 1, activeProject.gallery.length - 1))
-                }
-                disabled={activeImageIndex === activeProject.gallery.length - 1}
-                aria-label="Next project image"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
             </div>
 
-            <p className="text-white text-center mt-3 md:mt-4" style={{ fontSize: "0.95rem", fontWeight: 600 }}>
-              {activeProject.gallery[activeImageIndex].title}
-            </p>
+            <div className="text-center text-white">
+              <div className="flex flex-nowrap items-center gap-3 sm:gap-4 max-w-xl mx-auto">
+                <button
+                  className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  onClick={() => setActiveImageIndex((prev) => Math.max(prev - 1, 0))}
+                  disabled={activeImageIndex === 0}
+                  aria-label="Previous project image"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
 
-            <p className="text-white/85 text-center mt-1" style={{ fontSize: "0.875rem", fontWeight: 500 }}>
-              {activeImageIndex + 1} / {activeProject.gallery.length}
-            </p>
+                <p className="flex-1 min-w-0" style={{ fontSize: "0.95rem", fontWeight: 600 }}>
+                  {activeProject.gallery[activeImageIndex].title}
+                </p>
+
+                <button
+                  className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  onClick={() =>
+                    setActiveImageIndex((prev) => Math.min(prev + 1, activeProject.gallery.length - 1))
+                  }
+                  disabled={activeImageIndex === activeProject.gallery.length - 1}
+                  aria-label="Next project image"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
+              <p className="text-white/85 mt-1" style={{ fontSize: "0.875rem", fontWeight: 500 }}>
+                {activeImageIndex + 1} / {activeProject.gallery.length}
+              </p>
+            </div>
           </div>
         </div>
       )}
