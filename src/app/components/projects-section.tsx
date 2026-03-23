@@ -155,7 +155,7 @@ export function ProjectsSection() {
 
             <div className="flex-1 min-h-0 rounded-2xl flex items-center gap-2 md:gap-4 py-1 sm:py-0">
               <button
-                className="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 onClick={() => setActiveImageIndex((prev) => Math.max(prev - 1, 0))}
                 disabled={activeImageIndex === 0}
                 aria-label="Previous project image"
@@ -163,16 +163,18 @@ export function ProjectsSection() {
                 <ChevronLeft className="w-6 h-6" />
               </button>
 
-              <div className="w-full h-full rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/20 flex items-center justify-center p-1 md:p-2">
-                <ImageWithFallback
-                  src={activeProject.gallery[activeImageIndex].src}
-                  alt={`${activeProject.title} screenshot ${activeImageIndex + 1}`}
-                  className="w-full h-full object-contain"
-                />
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full max-w-5xl aspect-[16/10] rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/20">
+                  <ImageWithFallback
+                    src={activeProject.gallery[activeImageIndex].src}
+                    alt={`${activeProject.title} screenshot ${activeImageIndex + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               <button
-                className="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 onClick={() =>
                   setActiveImageIndex((prev) => Math.min(prev + 1, activeProject.gallery.length - 1))
                 }
