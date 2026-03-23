@@ -74,15 +74,15 @@ function SkillItem({ skill }: { skill: Skill }) {
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="relative py-24 overflow-hidden">
+    <section id="skills" className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
       {/* Colorful gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1e293b] to-[#0f172a]" />
       {/* Accent glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#2563eb]/20 blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#8b5cf6]/15 blur-3xl" />
+      <div className="hidden sm:block absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#2563eb]/20 blur-3xl" />
+      <div className="hidden sm:block absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#8b5cf6]/15 blur-3xl" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <p
             className="uppercase tracking-widest text-[#60a5fa] mb-3"
             style={{ fontSize: "0.75rem", fontWeight: 600 }}
@@ -94,7 +94,7 @@ export function SkillsSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {skillCategories.map((category, idx) => {
             const borderColors = [
               "border-[#2563eb]/30",
@@ -109,7 +109,7 @@ export function SkillsSection() {
             return (
               <div
                 key={category.title}
-                className={`bg-white/5 backdrop-blur-sm rounded-2xl border ${borderColors[idx]} p-8 relative overflow-hidden`}
+                className={`bg-white/5 backdrop-blur-sm rounded-2xl border ${borderColors[idx]} p-6 sm:p-8 relative overflow-hidden`}
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-b ${glowColors[idx]} to-transparent opacity-50`}

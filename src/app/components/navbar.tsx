@@ -12,7 +12,7 @@ export function Navbar({ sections, activeSection, onNavClick }: NavbarProps) {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16 gap-3">
         {/* Logo */}
         <a
           href="#"
@@ -28,7 +28,7 @@ export function Navbar({ sections, activeSection, onNavClick }: NavbarProps) {
           >
             LG
           </div>
-          <span className="text-gray-900 hidden sm:inline" style={{ fontSize: "1rem", fontWeight: 600 }}>
+          <span className="text-gray-900 hidden sm:inline truncate max-w-[220px] md:max-w-none" style={{ fontSize: "1rem", fontWeight: 600 }}>
             Luigi Renzo Geralde
           </span>
         </a>
@@ -68,7 +68,7 @@ export function Navbar({ sections, activeSection, onNavClick }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-6 pb-4 pt-2">
+        <div className="md:hidden border-t border-gray-100 bg-white px-4 sm:px-6 pb-4 pt-2 max-h-[70vh] overflow-y-auto">
           {sections.map((section) => {
             const isActive = section === activeSection;
             return (

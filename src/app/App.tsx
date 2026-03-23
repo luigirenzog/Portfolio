@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen bg-white text-[#1f2937]"
+      className="min-h-screen bg-white text-[#1f2937] overflow-x-hidden"
       style={{ fontFamily: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" }}
     >
       <Navbar
@@ -40,9 +40,9 @@ export default function App() {
         <CertificatesSection />
       </main>
 
-      <footer className="relative border-t border-white/10 py-10 bg-gradient-to-r from-[#0f172a] to-[#1e293b]">
+      <footer className="relative border-t border-white/10 py-8 sm:py-10 bg-gradient-to-r from-[#0f172a] to-[#1e293b]">
         <div
-          className="max-w-6xl mx-auto px-6 text-center text-gray-500"
+          className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-gray-500"
           style={{ fontSize: "0.8125rem" }}
         >
           &copy; 2026 Luigi Renzo Geralde. Built with passion and clean code.

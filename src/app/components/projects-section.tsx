@@ -47,14 +47,14 @@ export function ProjectsSection() {
   const activeProject = activeProjectIndex !== null ? projects[activeProjectIndex] : null;
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden">
+    <section id="projects" className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
       {/* Soft colored background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#faf5ff] via-[#eff6ff] to-[#f0fdfa]" />
-      <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#8b5cf6]/[0.07] blur-3xl" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-[#2563eb]/[0.07] blur-3xl" />
+      <div className="hidden sm:block absolute top-10 right-10 w-72 h-72 rounded-full bg-[#8b5cf6]/[0.07] blur-3xl" />
+      <div className="hidden sm:block absolute bottom-10 left-10 w-72 h-72 rounded-full bg-[#2563eb]/[0.07] blur-3xl" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <p
             className="uppercase tracking-widest text-[#2563eb] mb-3"
             style={{ fontSize: "0.75rem", fontWeight: 600 }}
@@ -66,7 +66,7 @@ export function ProjectsSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <div
               key={project.title}
@@ -99,7 +99,7 @@ export function ProjectsSection() {
                   </a>
                 </div>
               </div>
-              <div className="p-7">
+              <div className="p-5 sm:p-7">
                 <h3
                   className="text-gray-900 mb-2"
                   style={{ fontSize: "1.1875rem", fontWeight: 600 }}
@@ -131,7 +131,7 @@ export function ProjectsSection() {
 
       {activeProject && (
         <div
-          className="fixed inset-0 z-[70] p-4 md:p-8"
+          className="fixed inset-0 z-[70] p-3 sm:p-4 md:p-8"
           style={{ background: "linear-gradient(145deg, rgba(37,99,235,0.94), rgba(14,116,144,0.94) 55%, rgba(15,23,42,0.96))" }}
           onClick={() => {
             setActiveProjectIndex(null);
@@ -140,7 +140,7 @@ export function ProjectsSection() {
         >
           <div className="max-w-6xl mx-auto h-full flex flex-col" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between text-white mb-3 md:mb-4">
-              <h3 style={{ fontSize: "1.25rem", fontWeight: 700 }}>{activeProject.title}</h3>
+              <h3 className="pr-3" style={{ fontSize: "clamp(1rem, 3.8vw, 1.25rem)", fontWeight: 700 }}>{activeProject.title}</h3>
               <button
                 onClick={() => {
                   setActiveProjectIndex(null);
@@ -153,7 +153,7 @@ export function ProjectsSection() {
               </button>
             </div>
 
-            <div className="flex-1 min-h-0 rounded-2xl flex items-center gap-2 md:gap-4">
+            <div className="flex-1 min-h-0 rounded-2xl flex items-center gap-2 md:gap-4 py-1 sm:py-0">
               <button
                 className="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-full bg-white/20 text-white inline-flex items-center justify-center hover:bg-white/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 onClick={() => setActiveImageIndex((prev) => Math.max(prev - 1, 0))}

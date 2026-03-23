@@ -39,15 +39,15 @@ export function CertificatesSection() {
     activeCertificateIndex !== null ? certificates[activeCertificateIndex] : null;
 
   return (
-    <section id="certificates-credibility" className="relative py-24 overflow-hidden">
+    <section id="certificates-credibility" className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
       {/* Dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]" />
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#2563eb]/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#8b5cf6]/10 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#06b6d4]/[0.08] blur-3xl" />
+      <div className="hidden sm:block absolute top-0 right-0 w-96 h-96 rounded-full bg-[#2563eb]/10 blur-3xl" />
+      <div className="hidden sm:block absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#8b5cf6]/10 blur-3xl" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-[#06b6d4]/[0.08] blur-3xl" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <p
             className="uppercase tracking-widest text-[#60a5fa] mb-3"
             style={{ fontSize: "0.75rem", fontWeight: 600 }}
@@ -59,7 +59,7 @@ export function CertificatesSection() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
           {certificates.map((cert, index) => {
             return (
               <button
@@ -94,7 +94,7 @@ export function CertificatesSection() {
 
       {activeCertificate && (
         <div
-          className="fixed inset-0 z-[80] p-4 md:p-8"
+          className="fixed inset-0 z-[80] p-3 sm:p-4 md:p-8"
           style={{ background: "linear-gradient(145deg, #0f172a, #2563eb 55%, #082f49)" }}
           onClick={() => setActiveCertificateIndex(null)}
         >
@@ -102,9 +102,9 @@ export function CertificatesSection() {
             className="max-w-7xl mx-auto h-full relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="absolute top-0 left-0 right-0 flex items-start justify-between text-white z-10">
-              <div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 700 }}>{activeCertificate.title}</h3>
+            <div className="absolute top-0 left-0 right-0 flex items-start justify-between text-white z-10 gap-3">
+              <div className="min-w-0 pr-2">
+                <h3 className="break-words" style={{ fontSize: "clamp(1rem, 3.8vw, 1.25rem)", fontWeight: 700 }}>{activeCertificate.title}</h3>
                 <p className="text-white/80" style={{ fontSize: "0.875rem", fontWeight: 500 }}>
                   {activeCertificate.issuer}
                 </p>
@@ -119,7 +119,7 @@ export function CertificatesSection() {
               </button>
             </div>
 
-            <div className="absolute inset-0 flex items-center justify-center gap-3 md:gap-4 py-20 md:py-24">
+            <div className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 py-16 sm:py-20 md:py-24">
               <button
                 type="button"
                 onClick={() =>
