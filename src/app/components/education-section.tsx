@@ -18,7 +18,7 @@ export function EducationSection() {
     },
     {
       yearRange: "2023 \u2014 2027",
-      level: "3rd year - BS Information Systems",
+      level: "Bachelor of Science in Information Systems",
       school: "Ateneo de Davao University",
       logo: "src/assets/ADDULogo.jpg",
       logoAlt: "Ateneo de Davao University Logo",
